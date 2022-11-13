@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#FFA726,#fff);
+}
+
+.box {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    animation: myRotate 10s linear infinite;
+}
+
+.clover {
+    width: 200px;
+    height: 200px;
+    background-color: #FFA726;
+    border: 1px solid #fff;
+}
+
+.clover::before {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: #FFA726;
+    position: absolute;
+    border-radius: 50%;
+    transform: translateX(-100px);
+}
+
+.clover::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: #FFA726;
+    position: absolute;
+    border-radius: 50%;
+    transform: translateY(-100px);
+}
+
+.clover:nth-child(1) {
+    transform: translate(52px,52px);
+}
+
+.clover:nth-child(2) {
+    transform: translate(52px,52px) rotate(90deg);
+}
+
+.clover:nth-child(3) {
+    transform: translateX(52px) rotate(-90deg);
+}
+
+.clover:nth-child(4) {
+    transform: translateX(52px) rotate(180deg);
+}
+
+@keyframes myRotate {
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.menu {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0000004d;
+
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 1px 19px rgba(0,0,0,1);
+    z-index: 99;
+}
+
+.menu a {
+    position: relative;
+    display: block;
+    width: 140px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin: 40px auto;
+    color: plum;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    filter: hue-rotate(calc(var(--i)*60deg))
+}
+
+.menu a::before,
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid plum;
+    transition: all 0.3s ease-in-out 0.3s;
+}
+
+.menu a::before {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.menu a::after {
+    right: 0;
+    bottom: 0;
+    border-top: 0;
+    border-left: 0;
+}
+
+.menu a:hover {
+    background-color: plum;
+    color: #000;
+    box-shadow: 0 0 50 px plum;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba0,0,0,0.3);
+    transition-delay: 0.4s;
+}
+
+.menu a:hover::before,
+.menu a:hover::after {
+    width: 138px;
+    height: 58px;
+    transition-delay: 0s;
+}5
